@@ -1,0 +1,30 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>عرض البيانات</title>
+</head>
+<body>
+    <h1>معلومات الإحصائيات</h1>
+    <a href="/download_csv">📥 تحميل الملف</a>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                {% for key in dataset[0].keys() %}
+                    <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in dataset %}
+                <tr>
+                    {% for value in row.values() %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
